@@ -155,9 +155,9 @@ def mine():
 
 @app.route('/transactions/new', methods=['GET'])
 def new_transaction():
-	sender = request.args.get('s')
-	recipient = request.args.get('r')
-	amount = int(request.args.get('a'))
+	sender = request.args.get('sender')
+	recipient = request.args.get('recipient')
+	amount = int(request.args.get('amount'))
 	index = blockchain.new_transaction(sender, recipient,amount)
 	if index > 0:
 		response = {'message': f'Transaction will be added to Block {index}'}
